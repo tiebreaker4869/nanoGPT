@@ -94,7 +94,6 @@ class CausalSelfAttention(nn.Module):
 
         # (B, n_head, T, T) x (B, n_head, T, self.head_dim) -> (B, n_head, T, head_dim)
         out = torch.matmul(atten_scores, v)
-
         # resume to original shape
         out = out.transpose(1, 2).contiguous().view(B, T, C)
 

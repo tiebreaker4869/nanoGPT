@@ -48,8 +48,8 @@ valid_data = data[int(n * train_ratio):]
 train_ids = encode(train_data)
 valid_ids = encode(valid_data)
 
-train_ids = np.array(train_ids)
-valid_ids = np.array(valid_ids)
+train_ids = np.array(train_ids, np.uint16)
+valid_ids = np.array(valid_ids, np.uint16)
 
 train_ids.tofile(os.path.join(os.path.dirname(__file__), 'train.bin'))
 valid_ids.tofile(os.path.join(os.path.dirname(__file__), 'valid.bin'))
