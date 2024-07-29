@@ -13,7 +13,7 @@ class GPTConfig:
     vocab_size: int = 50304 # GPT-2 vocab_size of 50257, padded up to nearest multiple of 64 for efficiency
     n_layer: int = 12
     n_head: int = 12
-    n_embed: int = 758
+    n_embed: int = 768
     dropout: float = 0.0
     bias: bool = True # True: bias in Linear Layers and LayerNorms
 
@@ -37,6 +37,7 @@ class MLP(nn.Module):
     The feedforward Layer
     """
     def __init__(self, config: GPTConfig):
+        super(MLP, self).__init__()
         self.up_proj = nn.Linear(config.n_embed, 4 * config.n_embed)
         self.gelu = nn.GELU()
         self.down_proj = nn.Linear(config.n_embed * 4, config.n_embed)
