@@ -104,6 +104,7 @@ class Block(nn.Module):
     The decoder-only transformer block
     """
     def __init__(self, config: GPTConfig):
+        super(Block, self).__init__()
         self.layernorm_1 = LayerNorm(config.n_embed, config.bias)
         self.attention = CausalSelfAttention(config)
         self.layernorm_2 = LayerNorm(config.n_embed, config.bias)
