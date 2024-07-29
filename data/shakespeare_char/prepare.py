@@ -54,6 +54,10 @@ valid_ids = np.array(valid_ids)
 train_ids.tofile(os.path.join(os.path.dirname(__file__), 'train.bin'))
 valid_ids.tofile(os.path.join(os.path.dirname(__file__), 'valid.bin'))
 
+print(f"training dataset contains {len(train_ids)} tokens")
+
+print(f"valid dataset contains {len(valid_ids)} tokens")
+
 # save the meta information as well, to help us encode/decode later
 meta = {
     'vocab_size': vocab_size,
