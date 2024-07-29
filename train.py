@@ -45,7 +45,7 @@ config = GPTConfig(
     vocab_size=vocab_size
 )
 
-model = GPT(config)
+model = GPT(config).to(device)
 
 # data loading
 def get_batch(split):
